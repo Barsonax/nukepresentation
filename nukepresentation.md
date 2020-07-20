@@ -2,17 +2,12 @@
 theme : "white"
 transition: "slide"
 highlightTheme: "monokai"
-logoImg: "avatar.png"
 slideNumber: false
 title: "VSCode Reveal intro"
 ---
 
-![logo](/avatar.png)
-
----
-
 # Wat is NUKE build?
-- Het is een build automation tool. 
+- Build automation tool. 
 - Vergelijkbare andere tools:
   - Cake (C# met een smaakje)
   - Psake (powershell)
@@ -30,10 +25,9 @@ title: "VSCode Reveal intro"
 
 ---
 
-# Demo opzetten NUKE build.md
-
+# Opzetten NUKE build
 NUKE is makkelijk op te zetten met `nuke :setup`
-```
+```console
 PS C:\git\NukePresentation\Demo\3> nuke :setup
 NUKE Global Tool version 0.24.11 (Windows,.NETCoreApp,Version=v2.1)
 Could not find root directory. Falling back to working directory.
