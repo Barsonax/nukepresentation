@@ -19,26 +19,59 @@ class Build : NukeBuild
     ///   - Microsoft VisualStudio     https://nuke.build/visualstudio
     ///   - Microsoft VSCode           https://nuke.build/vscode
 
-    public static int Main () => Execute<Build>(x => x.Compile);
+    public static int Main() => Execute<Build>(x => x.ParameterDemo);
 
     [Parameter("Configuration to build - Default is 'Debug' (local) or 'Release' (server)")]
     readonly Configuration Configuration = IsLocalBuild ? Configuration.Debug : Configuration.Release;
 
-    Target Clean => _ => _
-        .Before(Restore)
+    private AbsolutePath ThisPresentation => RootDirectory / "nukepresentation.md";
+
+    [Parameter]
+    private readonly string SomeParameter;
+    Target Foo => _ => _
         .Executes(() =>
         {
+
         });
 
-    Target Restore => _ => _
+    Target Bar => _ => _
+    .DependsOn(Foo)
         .Executes(() =>
         {
+
         });
 
-    Target Compile => _ => _
-        .DependsOn(Restore)
+    Target AfterFoo => _ => _
+    .After(Foo)
         .Executes(() =>
         {
+
+        });
+
+    Target BeforeFoo => _ => _
+    .Before(Foo)
+        .Executes(() =>
+        {
+
+        });
+
+    Target Trigger => _ => _
+        .Executes(() =>
+        {
+
+        });
+
+    Target TriggeredBy => _ => _
+        .TriggeredBy(Trigger)
+        .Executes(() =>
+        {
+
+        });
+
+    Target ParameterDemo => _ => _
+        .Executes(() =>
+        {
+            Logger.Info($"SomeParameter value: {SomeParameter}");
         });
 
 }

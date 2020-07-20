@@ -1,12 +1,12 @@
 ---
 theme : "white"
 transition: "slide"
-highlightTheme: "monokai"
+highlightTheme: "vs2015"
 slideNumber: false
 title: "VSCode Reveal intro"
 ---
 
-# Wat is NUKE build?
+## Wat is NUKE build?
 - Build automation tool. 
 - Vergelijkbare andere tools:
   - Cake (C# met een smaakje)
@@ -15,7 +15,7 @@ title: "VSCode Reveal intro"
 
 ---
 
-# Waarom NUKE build
+## Waarom NUKE build
 - Gebruikt C#
 - Gewone console applicatie
 - Debugging
@@ -25,7 +25,7 @@ title: "VSCode Reveal intro"
 
 ---
 
-# Opzetten NUKE build
+## Opzetten NUKE build
 NUKE is makkelijk op te zetten met `nuke :setup`
 ```console
 PS C:\git\NukePresentation\Demo\3> nuke :setup
@@ -43,7 +43,122 @@ Touching file 'C:\git\NukePresentation\Demo\3\.nuke'...
 Creating directory 'C:\git\NukePresentation\Demo\3\.\build'...
 ```
 
----
+--
 
 ## Wat zijn `build.cmd`, `build.ps1` en `build.sh`??
-In principe kan je direct `dotnet run` aanroepen op het project echter deze scripts zorgen ervoor dat de `dotnet cli` altijd geinstalleerd is mocht dit nog niet zo zijn.
+- Bootstrap scripts voor de `dotnet cli`
+- In principe niet nodig, `dotnet run` werkt ook gewoon
+- Handig als de `dotnet cli` niet geinstalleerd is
+
+--
+
+## Wat is `.nuke`??
+- Bepaalt de root folder
+- Hier komt ook (optioneel) het pad naar de .sln in te staan
+
+---
+
+## Targets
+
+```csharp
+    Target Foo => _ => _
+        .Executes(() =>
+        {
+
+        });
+```
+```console
+nuke Foo
+```
+
+--
+
+## Dependencies
+
+DependsOn
+```csharp
+    Target Bar => _ => _
+    .DependsOn(Foo)
+        .Executes(() =>
+        {
+
+        });
+```
+```console
+nuke Bar
+```
+
+--
+
+## Trigger
+
+TriggerBy
+```csharp
+    Target Trigger => _ => _
+        .Executes(() =>
+        {
+
+        });
+
+    Target TriggeredBy => _ => _
+        .TriggeredBy(Trigger)
+        .Executes(() =>
+        {
+
+        });
+```
+```console
+nuke Trigger
+```
+
+--
+
+## Ordering
+
+After
+```csharp
+    Target AfterFoo => _ => _
+    .After(Foo)
+        .Executes(() => {
+            
+        });
+```
+```console
+nuke Foo AfterFoo
+```
+
+Before
+```csharp
+    Target BeforeFoo => _ => _
+    .Before(Foo)
+        .Executes(() => {
+            
+        });
+```
+```console
+nuke Foo BeforeFoo
+```
+
+---
+
+## Parameters
+- `[Parameter]` atribuut
+
+Code
+```csharp
+[Parameter]
+readonly string SomeParameter;
+```
+
+Input
+```console
+nuke ParameterDemo --someparameter blabla
+```
+
+--
+
+## Path
+
+```csharp
+AbsolutePath ThisPresentation => RootDirectory / "nukepresentation.md";
+```
