@@ -2,8 +2,8 @@
 theme : "white"
 transition: "slide"
 highlightTheme: "vs2015"
-slideNumber: false
-title: "VSCode Reveal intro"
+slideNumber: true
+title: "NUKE build presentation"
 ---
 
 ## Wat is NUKE?
