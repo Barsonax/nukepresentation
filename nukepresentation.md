@@ -36,19 +36,19 @@ dotnet tool install Nuke.GlobalTool --global
 ## NUKE toevoegen aan een project
 Setup wizard met `nuke :setup`
 ```console
-PS C:\git\NukePresentation\Demo\3> nuke :setup
+PS C:\git\NukePresentation> nuke :setup                                                                                                                                                                                                                                             
 NUKE Global Tool version 0.24.11 (Windows,.NETCoreApp,Version=v2.1)
-Could not find root directory. Falling back to working directory.
 How should the build project be named?
-¬  _build                                                                                                                                                                                                                                                       
+¬  _build                                                                                                                                                                                                                                                                           
 Where should the build project be located?
-¬  ./build                                                                                                                                                                                                                                                      
+¬  ./build                                                                                                                                                                                                                                                                          
 Which NUKE version should be used?
 ¬  0.24.11 (latest release)
-Which solution should be the default?                                                                                                                                                                                                                           
-¬  None                                                                                                                                                                                                                                                         
-Touching file 'C:\git\NukePresentation\Demo\3\.nuke'...
-Creating directory 'C:\git\NukePresentation\Demo\3\.\build'...
+Which solution should be the default?                                                                                                                                                                                                                                               
+¬  NukePresentation.sln                                                                                                                                                                                                                                                             
+Do you need help getting started with a basic build?                                                                                                                                                                                                                                
+¬  No, I can do this myself...                                                                                                                                                                                                                                                      
+Creating directory 'C:\git\NukePresentation\.\build'...       
 ```
 
 --
