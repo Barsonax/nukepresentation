@@ -6,7 +6,8 @@ slideNumber: false
 title: "VSCode Reveal intro"
 ---
 
-## Wat is NUKE build?
+## Wat is NUKE?
+- https://nuke.build
 - Build automation tool. 
 - Vergelijkbare andere tools:
   - Cake (C# met een smaakje)
@@ -15,18 +16,25 @@ title: "VSCode Reveal intro"
 
 ---
 
-## Waarom NUKE build
+## Waarom NUKE
 - Gebruikt C#
 - Gewone console applicatie
 - Debugging
 - Makkelijk op te zetten met de nuke global tool
-- Parameters
-- Makkelijk omgaan met paden
+- En meer!...
 
 ---
 
-## Opzetten NUKE build
-NUKE is makkelijk op te zetten met `nuke :setup`
+## Installatie NUKE 
+NUKE is beschikbaar als een dotnet global tool:
+```console
+dotnet tool install Nuke.GlobalTool --global
+```
+
+--
+
+## NUKE toevoegen aan een project
+Setup wizard met `nuke :setup`
 ```console
 PS C:\git\NukePresentation\Demo\3> nuke :setup
 NUKE Global Tool version 0.24.11 (Windows,.NETCoreApp,Version=v2.1)
@@ -46,15 +54,27 @@ Creating directory 'C:\git\NukePresentation\Demo\3\.\build'...
 --
 
 ## Wat zijn `build.cmd`, `build.ps1` en `build.sh`??
-- Bootstrap scripts voor de `dotnet cli`
-- In principe niet nodig, `dotnet run` werkt ook gewoon
-- Handig als de `dotnet cli` niet geinstalleerd is
+- In principe niet nodig, de NUKE global tool of gewoon `dotnet run` werkt ook
+- Wel handig als NUKE of de `dotnet cli` nog niet geinstalleerd is.
 
 --
 
 ## Wat is `.nuke`??
 - Bepaalt de root folder
 - Hier komt ook (optioneel) het pad naar de .sln in te staan
+
+--
+
+## Aanroepen NUKE
+
+Global tool
+```console
+nuke [targets] [arguments]
+```
+Via de scripts werkt hetzelfde
+```console
+.\build.ps1 [targets] [arguments]
+```
 
 ---
 
@@ -142,7 +162,7 @@ nuke Foo BeforeFoo
 ---
 
 ## Parameters
-- `[Parameter]` atribuut
+- `[Parameter]` attribuut
 
 Code
 ```csharp
@@ -157,8 +177,60 @@ nuke ParameterDemo --someparameter blabla
 
 --
 
+## Conversie
+- string
+- int
+- bool
+- arrays
+- enums
+- TypeConverter voor complexe types
+
+---
+
 ## Path
+- RootDirectory property
+- Types
+- Operators
+
+--
+
+## Types
+- AbsolutePath
+- RelativePath
+- WinRelativePath
+- UnixRelativePath
+
+--
+
+## RootDirectory
+- Type AbsolutePath
+- De directory waar `.nuke` zich bevindt
+
+--
+
+## Voorbeeld
 
 ```csharp
 AbsolutePath ThisPresentation => RootDirectory / "nukepresentation.md";
 ```
+
+---
+
+## Third party cli tools
+- PackageExecutable
+- LocalExecutable
+- PathExecutable
+
+---
+
+## Solutions en projecten
+- [Solution] attribuut
+
+---
+
+## Documentatie
+https://nuke.build/docs/getting-started/philosophy.html
+
+---
+
+## Vragen
