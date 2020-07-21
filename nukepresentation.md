@@ -3,7 +3,24 @@ theme : "white"
 transition: "slide"
 highlightTheme: "vs2015"
 slideNumber: true
+logoImg: "https://github.com/Barsonax/nukepresentation/raw/master/images/nukeIcon.png"
 title: "NUKE build presentation"
+enableTitleFooter: false
+---
+
+## NUKE build
+
+<a>
+    <img style="border: unset; box-shadow: unset" data-src="https://github.com/Barsonax/nukepresentation/raw/master/images/nukeIcon.png">
+</a>
+
+---
+
+## In deze presentatie
+- Wat is NUKE?
+- Waarom NUKE?
+- De techniek in
+
 ---
 
 ## Wat is NUKE?
@@ -16,7 +33,7 @@ title: "NUKE build presentation"
 
 ---
 
-## Waarom NUKE
+## Waarom NUKE?
 - Gebruikt C#
 - Gewone console applicatie
 - Debugging
