@@ -52,13 +52,13 @@ class Build : NukeBuild
             }
         });
 
-    Target GitVersionHard => _ => _
+    Target GitVersionTheHardWay => _ => _
         .Executes(() =>
         {
             GitVersionTool();
         });
 
-    Target GitVersionEasy => _ => _
+    Target GitVersionTheEasyWay => _ => _
         .Executes(() =>
         {
             Logger.Info($"NugetVersion is {GitVersion.NuGetVersion}");

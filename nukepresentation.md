@@ -202,28 +202,10 @@ nuke ParameterDemo --someparameter blabla
 
 ---
 
-## Path
-- RootDirectory property
-- Types
-- Operators
-
---
-
-## Types
-- AbsolutePath
-- RelativePath
-- WinRelativePath
-- UnixRelativePath
-
---
-
-## RootDirectory
-- Type AbsolutePath
-- De directory waar `.nuke` zich bevindt
-
---
-
-## Voorbeeld
+## File system paden
+- Custom types om hier makkelijk mee om te gaan
+- Platform agnostisch
+- RootDirectory property, de directory waar `.nuke` zich bevindt
 
 ```csharp
 AbsolutePath ThisPresentation => RootDirectory / "nukepresentation.md";
@@ -232,9 +214,15 @@ AbsolutePath ThisPresentation => RootDirectory / "nukepresentation.md";
 ---
 
 ## Third party cli tools
-- PackageExecutable
-- LocalExecutable
-- PathExecutable
+- [PackageExecutable] attribuut
+- [LocalExecutable] attribuut
+- [PathExecutable] attribuut
+
+```csharp
+// Also needs the project to reference GitVersion.Tool!
+[PackageExecutable("GitVersion.Tool", @"tools\netcoreapp2.1\any\GitVersion.dll")]
+private static Tool GitVersionTool;
+```
 
 ---
 
