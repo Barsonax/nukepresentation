@@ -164,13 +164,11 @@ nuke Foo BeforeFoo
 ## Parameters
 - `[Parameter]` attribuut
 
-Code
 ```csharp
 [Parameter]
 readonly string SomeParameter;
 ```
 
-Input
 ```console
 nuke ParameterDemo --someparameter blabla
 ```
