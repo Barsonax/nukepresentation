@@ -94,6 +94,13 @@ Via de scripts werkt hetzelfde, handig op de CI
 .\build.ps1 [targets] [arguments]
 ```
 
+--
+
+## IDE integraties
+- Visual studio https://marketplace.visualstudio.com/items?itemName=nuke.visualstudio
+- VSCode https://marketplace.visualstudio.com/items?itemName=nuke.support
+- Rider https://plugins.jetbrains.com/plugin/10803-nuke-support
+
 ---
 
 ## Targets
@@ -181,6 +188,8 @@ nuke Foo BeforeFoo
 
 ## Parameters
 - `[Parameter]` attribuut
+- Via environment variabele
+- Via commandline parameter
 
 ```csharp
 [Parameter]
@@ -193,7 +202,7 @@ nuke ParameterDemo --someparameter blabla
 
 --
 
-## Conversie
+## Type conversie
 - string
 - int
 - bool

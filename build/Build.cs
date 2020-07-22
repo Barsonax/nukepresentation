@@ -38,6 +38,11 @@ class Build : NukeBuild
     [Parameter]
     private readonly string SomeParameter;
 
+    Target PrintThisPresentationPath => _ => _
+        .Executes(() => {
+            Logger.Info($"This presentation is hosted at {ThisPresentation}");
+        });
+
     Target DefaultTarget => _ => _
         .Executes(() => {
             Logger.Info("This is the default target");
