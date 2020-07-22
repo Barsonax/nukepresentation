@@ -84,11 +84,12 @@ Creating directory 'C:\git\NukePresentation\.\build'...
 
 ## Aanroepen NUKE
 
-Global tool
+Via de global tool, met autocompletion!
 ```console
 nuke [targets] [arguments]
 ```
-Via de scripts werkt hetzelfde
+
+Via de scripts werkt hetzelfde, handig op de CI
 ```console
 .\build.ps1 [targets] [arguments]
 ```
@@ -234,6 +235,8 @@ private static Tool GitVersionTool;
 ## Documentatie
 https://nuke.build/docs/getting-started/philosophy.html
 
+## Chat
+https://slofile.com/slack/nukebuildnet
 ---
 
 ## Vragen
