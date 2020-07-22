@@ -104,7 +104,7 @@ Via de scripts werkt hetzelfde, handig op de CI
 ---
 
 ## Targets
-
+- Een property die een `Target` delegate teruggeeft
 ```csharp
     Target Foo => _ => _
         .Executes(() =>
@@ -232,6 +232,12 @@ AbsolutePath ThisPresentation => RootDirectory / "nukepresentation.md";
 // Also needs the project to reference GitVersion.Tool!
 [PackageExecutable("GitVersion.Tool", @"tools\netcoreapp2.1\any\GitVersion.dll")]
 private static Tool GitVersionTool;
+
+Target GitVersionTheHardWay => _ => _
+    .Executes(() =>
+    {
+        GitVersionTool();
+    });
 ```
 
 ---
