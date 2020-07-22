@@ -106,11 +106,11 @@ Via de scripts werkt hetzelfde, handig op de CI
 ## Targets
 - Een property die een `Target` delegate teruggeeft
 ```csharp
-    Target Foo => _ => _
-        .Executes(() =>
-        {
+Target Foo => _ => _
+    .Executes(() =>
+    {
 
-        });
+    });
 ```
 ```console
 nuke Foo
@@ -122,12 +122,12 @@ nuke Foo
 
 DependsOn
 ```csharp
-    Target Bar => _ => _
-    .DependsOn(Foo)
-        .Executes(() =>
-        {
+Target Bar => _ => _
+.DependsOn(Foo)
+    .Executes(() =>
+    {
 
-        });
+    });
 ```
 ```console
 nuke Bar
@@ -139,18 +139,18 @@ nuke Bar
 
 TriggerBy
 ```csharp
-    Target Trigger => _ => _
-        .Executes(() =>
-        {
+Target Trigger => _ => _
+    .Executes(() =>
+    {
 
-        });
+    });
 
-    Target TriggeredBy => _ => _
-        .TriggeredBy(Trigger)
-        .Executes(() =>
-        {
+Target TriggeredBy => _ => _
+    .TriggeredBy(Trigger)
+    .Executes(() =>
+    {
 
-        });
+    });
 ```
 ```console
 nuke Trigger
@@ -162,11 +162,11 @@ nuke Trigger
 
 After
 ```csharp
-    Target AfterFoo => _ => _
-    .After(Foo)
-        .Executes(() => {
-            
-        });
+Target AfterFoo => _ => _
+.After(Foo)
+    .Executes(() => {
+        
+    });
 ```
 ```console
 nuke Foo AfterFoo
@@ -174,11 +174,11 @@ nuke Foo AfterFoo
 
 Before
 ```csharp
-    Target BeforeFoo => _ => _
-    .Before(Foo)
-        .Executes(() => {
-            
-        });
+Target BeforeFoo => _ => _
+.Before(Foo)
+    .Executes(() => {
+        
+    });
 ```
 ```console
 nuke Foo BeforeFoo
@@ -244,7 +244,15 @@ Target GitVersionTheHardWay => _ => _
 
 ## Solutions en projecten
 - [Solution] attribuut
-
+- Bevat info over de solution en de projecten
+```csharp
+[Solution] readonly Solution Solution;
+Target Compile => _ => _
+    .Executes(() =>
+    {
+        DotNetBuild(s => s.SetProjectFile(Solution));
+    });
+```
 ---
 
 ## Documentatie
