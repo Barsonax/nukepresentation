@@ -17,6 +17,7 @@ using static Nuke.Common.Tools.DotNet.DotNetTasks;
 class Build : NukeBuild
 {
     #region Targets
+
     public static int Main() => Execute<Build>(x => x.DefaultTarget);
     Target DefaultTarget => _ => _
         .Executes(() =>
@@ -62,6 +63,12 @@ class Build : NukeBuild
         .Executes(() =>
         {
 
+        });
+
+    Target TryTypingThisLongTargetByHand => _ => _
+        .Executes(() =>
+        {
+            
         });
 
     #endregion
