@@ -105,6 +105,7 @@ Via de scripts werkt hetzelfde, handig op de CI
 
 ## Targets
 - Een property die een `Target` delegate teruggeeft
+- Fluent interface
 ```csharp
 Target Foo => _ => _
     .Executes(() =>
@@ -123,7 +124,7 @@ nuke Foo
 DependsOn
 ```csharp
 Target Bar => _ => _
-.DependsOn(Foo)
+    .DependsOn(Foo)
     .Executes(() =>
     {
 
@@ -163,7 +164,7 @@ nuke Trigger
 After
 ```csharp
 Target AfterFoo => _ => _
-.After(Foo)
+    .After(Foo)
     .Executes(() => {
         
     });
@@ -175,7 +176,7 @@ nuke Foo AfterFoo
 Before
 ```csharp
 Target BeforeFoo => _ => _
-.Before(Foo)
+    .Before(Foo)
     .Executes(() => {
         
     });
