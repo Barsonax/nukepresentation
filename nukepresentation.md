@@ -84,7 +84,7 @@ Creating directory 'C:\git\NukePresentation\.\build'...
 
 ## Aanroepen NUKE
 
-Via de global tool, met autocompletion!
+Via de dotnet tool
 ```console
 nuke [targets] [arguments]
 ```
@@ -93,6 +93,16 @@ Via de scripts werkt hetzelfde, handig op de CI
 ```console
 .\build.ps1 [targets] [arguments]
 ```
+--
+
+## Autocompletion
+- De dotnet tool heeft autocompletion support
+
+![](https://github.com/Barsonax/nukepresentation/raw/master/images/nukeautocomplete.gif)
+
+--
+
+<!-- .slide: data-background="http://i.giphy.com/90F8aUepslB84.gif" -->
 
 --
 
@@ -184,6 +194,17 @@ Target BeforeFoo => _ => _
 ```console
 nuke Foo BeforeFoo
 ```
+
+--
+
+## Nuke plan
+- Maakt een grafische weergave van alle targets
+
+```console
+nuke --plan
+```
+
+![](https://github.com/Barsonax/nukepresentation/raw/master/images/nukeplan.png)
 
 ---
 
