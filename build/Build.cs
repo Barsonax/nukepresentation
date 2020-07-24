@@ -16,14 +16,14 @@ using static Nuke.Common.Tools.DotNet.DotNetTasks;
 [UnsetVisualStudioEnvironmentVariables]
 class Build : NukeBuild
 {
-    #region Targets
-
     public static int Main() => Execute<Build>(x => x.DefaultTarget);
     Target DefaultTarget => _ => _
         .Executes(() =>
         {
             Logger.Info("This is the default target");
         });
+
+    #region Targets
 
     Target Foo => _ => _
         .Executes(() =>
